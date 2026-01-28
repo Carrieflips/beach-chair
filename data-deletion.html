@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion - Kauai Beaches</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #1a2332;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #5eb3e4;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            opacity: 0.6;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            font-weight: 600;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+            opacity: 0.9;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        strong {
+            color: #5eb3e4;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(94, 179, 228, 0.1);
+            border-left: 4px solid #5eb3e4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <h1>Account & Data Deletion</h1>
+        <p class="subtitle">How to remove your data from Kauai Beaches</p>
+
+        <div class="content">
+            <div class="info-box">
+                <p><strong>Good News:</strong> Kauai Beaches does not require user accounts. All data is processed locally on your device or anonymously, which means we don't store your personal information on our servers.</p>
+            </div>
+
+            <h2>How to Delete Your Data</h2>
+
+            <h3 style="font-size: 1.3em; margin: 25px 0 15px; font-weight: 500;">Option 1: Delete the App</h3>
+            <p>Simply uninstall Kauai Beaches from your device. This removes all local data stored by the app, including:</p>
+            <ul>
+                <li>Your preferences and settings</li>
+                <li>Any cached weather data</li>
+                <li>App usage history stored on your device</li>
+            </ul>
+
+            <h3 style="font-size: 1.3em; margin: 25px 0 15px; font-weight: 500;">Option 2: Request Data Deletion</h3>
+            <p>If you believe we have any personal data associated with your account, you can request deletion by emailing:</p>
+            <p><strong>privacy@beachchairindustries.com</strong></p>
+            <p>Please include:</p>
+            <ul>
+                <li>Your device identifier (if available)</li>
+                <li>The email address you may have used to contact us</li>
+                <li>Any other information that would help us locate your data</li>
+            </ul>
+
+            <h2>What Happens After a Deletion Request</h2>
+            <ul>
+                <li>We will acknowledge your request within 7 business days</li>
+                <li>We will complete the deletion within 30 days</li>
+                <li>You will receive a confirmation email once the deletion is complete</li>
+            </ul>
+
+            <h2>Data We Cannot Delete</h2>
+            <p>Some data may be retained for legal or operational reasons:</p>
+            <ul>
+                <li>Anonymized analytics data that cannot be linked back to you</li>
+                <li>Records required by law (such as payment records for tax purposes)</li>
+                <li>Data in backup systems (which will be deleted when backups expire)</li>
+            </ul>
+
+            <h2>Questions?</h2>
+            <p>If you have questions about data deletion, contact us at: <strong>privacy@beachchairindustries.com</strong></p>
+        </div>
+    </div>
+</body>
+</html>

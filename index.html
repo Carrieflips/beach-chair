@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kauai Beaches - Find Your Warmest Chill</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #1a2332;
+            color: #fff;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Video background */
+        #video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            filter: blur(8px);
+            opacity: 0.3;
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        /* Dark overlay on video */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 35, 50, 0.4);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* 90s grainy texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .company {
+            font-size: 0.95em;
+            opacity: 0.6;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .app-screenshot {
+            max-width: 380px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .card ul {
+            list-style: none;
+            font-size: 1.05em;
+        }
+
+        .card li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .card li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #5eb3e4;
+            font-size: 1.5em;
+            line-height: 0.9;
+        }
+
+        .turtle-callout {
+            background: linear-gradient(135deg, rgba(94, 179, 228, 0.15) 0%, rgba(126, 205, 227, 0.15) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(94, 179, 228, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .turtle-callout h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .turtle-emoji {
+            font-size: 4em;
+            margin: 0 10px;
+        }
+
+        .turtle-callout p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .turtle-callout .fine-print {
+            font-size: 0.85em;
+            margin-top: 20px;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #5eb3e4;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-text {
+            opacity: 0.5;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        .download-badge {
+            display: inline-block;
+            background: rgba(94, 179, 228, 0.2);
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            margin: 25px 0;
+            border: 1px solid rgba(94, 179, 228, 0.4);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .download-badge:hover {
+            background: rgba(94, 179, 228, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .tagline {
+                font-size: 1.4em;
+            }
+
+            .app-screenshot {
+                max-width: 300px;
+            }
+
+            .card {
+                padding: 30px 25px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video id="video-background" autoplay loop muted playsinline>
+        <source src="video/istockphoto-1296881569-640_adpp_is.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <header>
+            <h1>Kauai Beaches</h1>
+            <div class="tagline">Find Your Warmest Chill</div>
+            <div class="company">A Beach Chair Industries Product</div>
+        </header>
+
+        <div class="hero">
+            <img src="kauai-beaches-app-v1.png" alt="Kauai Beaches App Screenshot" class="app-screenshot">
+            <br>
+            <a href="#" class="download-badge">Download on the App Store</a>
+        </div>
+
+        <div class="card">
+            <h2>Why Kauai Beaches?</h2>
+            <ul>
+                <li>Real-time weather conditions for every beach on Kauai</li>
+                <li>Wind speed, wave height, and temperature at a glance</li>
+                <li>Find the perfect spot for your beach day</li>
+                <li>No more driving around looking for good conditions</li>
+                <li>Support local wildlife conservation with every download</li>
+            </ul>
+        </div>
+
+        <div class="turtle-callout">
+            <h2>For Every Dollar We Earn, We Give One to a Turtle</h2>
+            <div>
+                <span class="turtle-emoji">🐢</span>
+                <span class="turtle-emoji">💵</span>
+            </div>
+            <p style="margin-top: 20px;">
+                We donate 50% of proceeds to local wildlife conservation organizations protecting Hawaii's precious marine life.
+            </p>
+            <p class="fine-print">
+                * Donations go to qualified conservation organizations staffed by humans. Turtles rarely carry wallets.
+            </p>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="data-deletion.html">Data Deletion</a>
+                <a href="support.html">Contact Support</a>
+            </div>
+            <p class="footer-text">© 2026 Beach Chair Industries. All rights reserved.</p>
+            <p class="footer-text">Stay safe, have fun, and protect our oceans 🐢</p>
+        </footer>
+    </div>
+</body>
+</html>
