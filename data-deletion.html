@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Deletion - Kauai Beaches</title>
+    <title>Data Deletion - Kauai Beach Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,115 +15,154 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: #1a2332;
-            color: #fff;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f0;
+            color: #1a1a1a;
             line-height: 1.7;
+            min-height: 100vh;
         }
 
-        body::before {
+        /* Grain texture */
+        body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             opacity: 0.08;
             pointer-events: none;
-            z-index: 1;
+            z-index: 1000;
+            mix-blend-mode: overlay;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 40px;
             position: relative;
             z-index: 2;
         }
 
         .back-link {
             display: inline-block;
-            color: #5eb3e4;
+            color: #4a4a4a;
             text-decoration: none;
-            margin-bottom: 30px;
-            font-size: 0.95em;
-            transition: opacity 0.2s;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
         .back-link:hover {
-            opacity: 0.7;
+            color: #1a1a1a;
         }
 
         h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
         }
 
         .subtitle {
-            opacity: 0.6;
-            margin-bottom: 40px;
-            font-size: 1.1em;
+            color: #7a7a7a;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: white;
             border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         h2 {
-            font-size: 1.6em;
-            margin: 35px 0 20px;
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
             font-weight: 600;
+            color: #2a2a2a;
         }
 
         h2:first-child {
             margin-top: 0;
         }
 
+        h3 {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            font-weight: 500;
+            color: #3a3a3a;
+        }
+
         p {
             margin: 15px 0;
-            opacity: 0.9;
+            color: #4a4a4a;
+            font-size: 1rem;
         }
 
         ul {
             margin: 15px 0 15px 25px;
-            opacity: 0.9;
+            color: #4a4a4a;
         }
 
         li {
-            margin: 10px 0;
+            margin: 12px 0;
+            line-height: 1.7;
         }
 
         strong {
-            color: #5eb3e4;
+            color: #1a1a1a;
             font-weight: 600;
         }
 
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
         .info-box {
-            background: rgba(94, 179, 228, 0.1);
-            border-left: 4px solid #5eb3e4;
-            padding: 20px;
-            margin: 20px 0;
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 25px;
+            margin: 25px 0;
             border-radius: 8px;
         }
 
+        .info-box p {
+            color: #5a5a5a;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
             .content {
-                padding: 30px 25px;
+                padding: 35px 25px;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 2rem;
             }
 
             h2 {
-                font-size: 1.4em;
+                font-size: 1.3rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .info-box {
+                padding: 20px;
             }
         }
     </style>
@@ -130,26 +172,26 @@
         <a href="index.html" class="back-link">← Back to Home</a>
 
         <h1>Account & Data Deletion</h1>
-        <p class="subtitle">How to remove your data from Kauai Beaches</p>
+        <p class="subtitle">How to remove your data from Kauai Beach Weather</p>
 
         <div class="content">
             <div class="info-box">
-                <p><strong>Good News:</strong> Kauai Beaches does not require user accounts. All data is processed locally on your device or anonymously, which means we don't store your personal information on our servers.</p>
+                <p><strong>Good News:</strong> Kauai Beach Weather does not require user accounts. All data is processed locally on your device or anonymously, which means we don't store your personal information on our servers.</p>
             </div>
 
             <h2>How to Delete Your Data</h2>
 
-            <h3 style="font-size: 1.3em; margin: 25px 0 15px; font-weight: 500;">Option 1: Delete the App</h3>
-            <p>Simply uninstall Kauai Beaches from your device. This removes all local data stored by the app, including:</p>
+            <h3>Option 1: Delete the App</h3>
+            <p>Simply uninstall Kauai Beach Weather from your device. This removes all local data stored by the app, including:</p>
             <ul>
                 <li>Your preferences and settings</li>
                 <li>Any cached weather data</li>
                 <li>App usage history stored on your device</li>
             </ul>
 
-            <h3 style="font-size: 1.3em; margin: 25px 0 15px; font-weight: 500;">Option 2: Request Data Deletion</h3>
+            <h3>Option 2: Request Data Deletion</h3>
             <p>If you believe we have any personal data associated with your account, you can request deletion by emailing:</p>
-            <p><strong>privacy@beachchairindustries.com</strong></p>
+            <p><a href="mailto:hey@carrieflips.com"><strong>hey@carrieflips.com</strong></a></p>
             <p>Please include:</p>
             <ul>
                 <li>Your device identifier (if available)</li>
@@ -173,7 +215,7 @@
             </ul>
 
             <h2>Questions?</h2>
-            <p>If you have questions about data deletion, contact us at: <strong>privacy@beachchairindustries.com</strong></p>
+            <p>If you have questions about data deletion, contact us at: <a href="mailto:hey@carrieflips.com"><strong>hey@carrieflips.com</strong></a></p>
         </div>
     </div>
 </body>

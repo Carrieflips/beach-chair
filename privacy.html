@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Kauai Beaches</title>
+    <title>Privacy Policy - Kauai Beach Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,70 +15,76 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: #1a2332;
-            color: #fff;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f0;
+            color: #1a1a1a;
             line-height: 1.7;
+            min-height: 100vh;
         }
 
-        body::before {
+        /* Grain texture */
+        body::after {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             opacity: 0.08;
             pointer-events: none;
-            z-index: 1;
+            z-index: 1000;
+            mix-blend-mode: overlay;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 40px;
             position: relative;
             z-index: 2;
         }
 
         .back-link {
             display: inline-block;
-            color: #5eb3e4;
+            color: #4a4a4a;
             text-decoration: none;
-            margin-bottom: 30px;
-            font-size: 0.95em;
-            transition: opacity 0.2s;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
         .back-link:hover {
-            opacity: 0.7;
+            color: #1a1a1a;
         }
 
         h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
         }
 
         .effective-date {
-            opacity: 0.6;
-            margin-bottom: 40px;
+            color: #7a7a7a;
+            margin-bottom: 50px;
+            font-size: 0.95rem;
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: white;
             border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         h2 {
-            font-size: 1.6em;
-            margin: 35px 0 20px;
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
             font-weight: 600;
+            color: #2a2a2a;
         }
 
         h2:first-child {
@@ -84,34 +93,49 @@
 
         p {
             margin: 15px 0;
-            opacity: 0.9;
+            color: #4a4a4a;
+            font-size: 1rem;
         }
 
         ul {
             margin: 15px 0 15px 25px;
-            opacity: 0.9;
+            color: #4a4a4a;
         }
 
         li {
-            margin: 10px 0;
+            margin: 12px 0;
+            line-height: 1.7;
         }
 
         strong {
-            color: #5eb3e4;
+            color: #1a1a1a;
             font-weight: 600;
         }
 
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
             .content {
-                padding: 30px 25px;
+                padding: 35px 25px;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 2rem;
             }
 
             h2 {
-                font-size: 1.4em;
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -125,7 +149,7 @@
 
         <div class="content">
             <h2>Information We Collect</h2>
-            <p>Kauai Beaches ("the App") collects the following information:</p>
+            <p>Kauai Beach Weather ("the App") collects the following information:</p>
             <ul>
                 <li><strong>Location Data:</strong> We access your device's location to show you the nearest beaches and relevant weather information. Location data is used only within the app and is not stored or shared.</li>
                 <li><strong>Usage Data:</strong> We collect anonymous analytics about app usage (pages viewed, features used) to improve the app experience.</li>
@@ -167,7 +191,7 @@
             <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the effective date at the top of this policy.</p>
 
             <h2>Contact Us</h2>
-            <p>For privacy concerns, contact us at: <strong>privacy@beachchairindustries.com</strong></p>
+            <p>For privacy concerns, contact us at: <a href="mailto:hey@carrieflips.com"><strong>hey@carrieflips.com</strong></a></p>
         </div>
     </div>
 </body>
